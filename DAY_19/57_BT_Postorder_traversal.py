@@ -1,0 +1,46 @@
+'''Given the root of a binary tree, return the postorder traversal of its nodes' values.
+
+Example 1:
+
+Input: root = [1,null,2,3]
+Output: [3,2,1]
+Explanation:
+
+Example 2:
+Input: root = [1,2,3,4,5,null,8,null,null,6,7,9]
+Output: [4,6,7,5,2,9,8,3,1]
+Explanation:
+
+Example 3:
+Input: root = []
+Output: []
+
+Example 4:
+Input: root = [1]
+Output: [1]'''
+
+
+
+
+
+# Simple and easy logic
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def postorderTraversal(self, root):
+        ans = []
+        self.postorder(root, ans)
+        return ans
+
+    def postorder(self, root, ans):
+        if root is None:
+            return
+        self.postorder(root.left, ans)
+        self.postorder(root.right, ans)
+        ans.append(root.val)
